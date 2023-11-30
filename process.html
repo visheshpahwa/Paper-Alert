@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS styles if needed -->
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Welcome to Your Dashboard</h1>
+        <p class="text-center">Enter the link and email to proceed.</p>
+
+        <!-- <form id="dataForm" action="https://formspree.io/f/xbjvelyd" method="POST"> -->
+        <form id="dataForm" action="https://formspree.io/f/xbjvelyd"
+        method="POST">
+            <div class="form-group" >
+                <label for="link">Link:</label>
+                <input type="text" class="form-control" id="link" name="link" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send</button>
+            <!-- <button type="button" class="btn btn-primary" onclick="sendData()">Send</button> -->
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+            Host: "smtp.gmail.com",
+            Username: "vishuuupahwa@gmail.com",
+            Password: "vishu786@P",
+            To: 'vishupahwa1212@gmail.com',
+            From: document.getElementById("email").value,
+            Subject: "Data submitted successfully.",
+            Body: "Email: " + document.getElementById("email").value + "<br> Link: "+ document.getElementById("link").value
+        }).then(
+            message => alert("Message sent sucessfully")
+        );
+        }
+        
+    </script>
+    <!-- <script>
+        function sendData() {
+            const link = document.getElementById('link').value;
+            const email = document.getElementById('email').value;
+
+            fetch('/api/process_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ link, email }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Server Response:', data);
+                    alert('Data sent successfully!');
+                })
+                .catch(error => {
+                    console.error('Error sending data to server:', error);
+                    alert('Error sending data to server. Please try again.');
+                });
+        }
+    </script> -->
+
+</body>
+
+</html>

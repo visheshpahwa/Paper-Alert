@@ -36,7 +36,7 @@
     <div class="container">
         <h1 class="display-4">Welcome to Paper Alert!</h1>
         <p class="lead">A powerful tool to analyze paper similarities</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button" onclick="getStarted()">Get Started</a>
     </div>
 </section>
 
@@ -133,6 +133,12 @@
 </footer>
 
 <!-- Bootstrap JS -->
+<script>
+    function getStarted() {
+        // Redirect to progress.html
+        window.location.href = 'process.html';
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
